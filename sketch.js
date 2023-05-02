@@ -54,6 +54,7 @@ function createBlock(y){
 function drawBlock(entity){
   fill(170);
   rect(entity.x, entity.y, 80, 400);
+  
 }
 
 function blockIsAlive(entity){
@@ -95,7 +96,6 @@ function entitliesAreColliding(
 /**画像データ */
 let img;
 let img2;
-
 /** プレイヤーエンティティ*/ 
 let player;
 
@@ -117,7 +117,7 @@ function drawGameoverScreen(){
   background(0, 192); //透明度 192 の黒
   fill(255);
   textSize(64);
-  textFont("Monoton");
+  textFont("Bruno Ace SC");
   textAlign(CENTER, CENTER); //横に中央ぞろえ & 縦に中央揃え
   text("GAME OVER", width / 2, height / 2); //画面中央にテキスト表示
 }
@@ -165,7 +165,7 @@ function updateGame(){
 /**ゲームの描画 */
 function drawGame(){
   //全エンティティを描画
-  image(img2,0, 0, width,height);
+  image(img2,width /2, height/ 2, width ,height);
   drawPlayer(player);
   for(let block of blocks) drawBlock(block);
 
@@ -193,7 +193,7 @@ function onMousePress(){
 function setup() {
   createCanvas(800, 600); // 800 x 600 ピクセル。今回このサイズでやっていきます
   rectMode(CENTER); //四角形の基準点を中心に変更
-  
+  imageMode(CENTER);
   resetGame();
 }
 
